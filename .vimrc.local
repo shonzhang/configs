@@ -1,0 +1,41 @@
+set nocursorline " don't highlight current line
+
+" base
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set backspace=indent,eol,start
+
+" fonts
+set guifont=Monaco:h14
+
+" keyboard shortcuts
+inoremap jj <ESC>
+nmap ; :
+"nmap <C-P> :bp<CR>
+"nmap <C-N> :bn<CR>
+nmap H :bp<CR>
+nmap L :bn<CR>
+inoremap <C-F> <C-X><C-F>
+inoremap <C-D> <C-X><C-D>
+
+"omni
+"inoremap <expr> <CR>       pumvisible()?"\<C-Y>":"\<CR>"
+"inoremap <expr> <C-J>      pumvisible()?"\<PageDown>\<C-N>\<C-P>":"\<C-X><C-O>"
+"inoremap <expr> <C-K>      pumvisible()?"\<PageUp>\<C-P>\<C-N>":"\<C-K>"
+"inoremap <expr> <C-U>      pumvisible()?"\<C-E>":"\<C-U>"
+
+
+" gui settings
+if (&t_Co == 256 || has('gui_running'))
+  if ($TERM_PROGRAM == 'iTerm.app')
+    colorscheme solarized
+  else
+    colorscheme desert
+  endif
+endif
+
+"状态栏
+if has("statusline")
+set statusline=%F%m%r%h%w\ %=[FORMAT=%{&ff}]\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\"}\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+endif
