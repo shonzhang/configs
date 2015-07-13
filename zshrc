@@ -127,7 +127,8 @@ alias grep="grep --color"
 
 alias c="clear"
 #alias flushdns="sudo killall -HUP mDNSResponder"
-alias flushdns="sudo discoveryutil udnsflushcaches"
+#alias flushdns="sudo discoveryutil udnsflushcaches"
+alias flushdns="dscacheutil -flushcache"
 
 export LC_ALL=zh_CN.UTF-8
 
